@@ -136,6 +136,7 @@ def ask_ollama(prompt: str, model: str) -> str:
         "model": model,
         "prompt": prompt,
         "stream": False,
+        "think": False,
         "keep_alive": "15m",
         "options": {"num_predict": 900, "temperature": 0.4},
     }, timeout=LLM_TIMEOUT_S)

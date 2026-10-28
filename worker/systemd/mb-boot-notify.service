@@ -1,0 +1,10 @@
+[Unit]
+Description=Morning Brief - notify Telegram that this Pi is up
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi4
+ExecStart=/home/pi4/morning-brief/.venv/bin/python /home/pi4/morning-brief/boot_notify.py
+TimeoutStartSec=400
