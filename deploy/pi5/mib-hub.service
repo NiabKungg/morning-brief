@@ -1,0 +1,18 @@
+[Unit]
+Description=MIB hub: API, live UI, scheduler and LFM3 pipeline
+After=network-online.target mib-llm.service
+Wants=network-online.target mib-llm.service
+
+[Service]
+Type=simple
+User=pi5
+WorkingDirectory=/home/pi5/mib/app
+EnvironmentFile=/home/pi5/mib/hub.env
+ExecStart=/home/pi5/mib/app/.venv/bin/python -m mib.hub
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

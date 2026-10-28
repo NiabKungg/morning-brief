@@ -1,0 +1,19 @@
+[Unit]
+Description=MIB worker: crawls sources and the web for the hub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi4
+WorkingDirectory=/home/pi4/mib/app
+EnvironmentFile=/home/pi4/mib/worker.env
+ExecStart=/home/pi4/mib/app/.venv/bin/python -m mib.worker
+Restart=always
+RestartSec=5
+# The Pi 4 has 2 GB: cap the worker (Chromium included) so the OS and SSH stay responsive.
+MemoryMax=1200M
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
