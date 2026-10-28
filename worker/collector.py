@@ -21,8 +21,8 @@ FETCHERS = (
     ("fetch_rss", "fetch_rss.json"),
     ("fetch_market", "fetch_market.json"),
     ("fetch_github", "fetch_github.json"),
-    ("fetch_reddit", "fetch_reddit.json"),
 )
+# หมายเหตุ: fetch_reddit.py เว้นไว้ v2 (Reddit บล็อก IP/UA — ต้องใช้ OAuth)
 TIMEOUT_S = 150
 
 

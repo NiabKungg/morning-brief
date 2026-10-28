@@ -11,10 +11,10 @@ API = "https://api.github.com/search/repositories"
 
 
 def main(out_path: Path) -> int:
-    cfg = load_config(out_path.parents[1])
+    cfg = load_config(out_path)
     since = (datetime.now(timezone.utc) - timedelta(days=2)).strftime("%Y-%m-%d")
-    url = (f"{API}?q=created:>{since}&sort=stars&order=desc"
-           f"&per_page={cfg['github']['per_page']}")
+    per_page = cfg.get("github", {}).get("per_page", 8)
+    url = f"{API}?q=created:>{since}&sort=stars&order=desc&per_page={per_page}"
     r = safe_get(url)
     data = r.json()
     items = [{

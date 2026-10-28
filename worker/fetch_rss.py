@@ -18,7 +18,7 @@ def clean(html: str, limit: int = 280) -> str:
 
 
 def main(out_path: Path) -> int:
-    cfg = load_config(out_path.parents[1])
+    cfg = load_config(out_path)
     items = []
     ok = 0
     for feed in cfg["rss"]["feeds"]:

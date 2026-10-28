@@ -4,20 +4,18 @@
       {"name": "Blognone", "url": "https://www.blognone.com/atom.xml", "lang": "th"},
       {"name": "TechCrunch", "url": "https://techcrunch.com/feed/", "lang": "en"},
       {"name": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "lang": "en"},
-      {"name": "Hacker News Front", "url": "https://hnrss.org/frontpage", "lang": "en"}
+      {"name": "Hacker News Front", "url": "https://hnrss.org/frontpage", "lang": "en"},
+      {"name": "Hacker News 200+", "url": "https://hnrss.org/newest?points=200", "lang": "en"},
+      {"name": "dev.to", "url": "https://dev.to/feed", "lang": "en"}
     ],
     "max_per_feed": 8
   },
   "market": {
     "coingecko_coins": ["bitcoin", "ethereum", "solana"],
     "coingecko_vs": "usd",
-    "stooq_symbols": ["aapl.us", "msft.us", "nvda.us", "googl.us", "meta.us"]
+    "yahoo_symbols": ["AAPL", "MSFT", "NVDA", "GOOGL", "META"]
   },
   "github": {
     "per_page": 8
-  },
-  "reddit": {
-    "subs": ["programming", "technology", "LocalLLaMA"],
-    "limit": 8
   }
 }

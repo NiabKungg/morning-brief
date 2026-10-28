@@ -11,6 +11,7 @@ import ipaddress
 import json
 import socket
 import sys
+from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
@@ -25,15 +26,20 @@ ALLOWED_HOSTS = frozenset({
     "techcrunch.com",
     "www.theverge.com",
     "hnrss.org",
+    "dev.to",
     "api.coingecko.com",
-    "stooq.com",
+    "query1.finance.yahoo.com",
     "api.github.com",
     "www.reddit.com",
 })
 
 
-def load_config(base: Path) -> dict:
-    return json.loads((base / "sources.json").read_text(encoding="utf-8"))
+def load_config(out_path: Path) -> dict:
+    """หา sources.json จากตัวไฟล์ผลลัพธ์ขึ้นไปจนถึง root โปรเจกต์"""
+    for p in [out_path, *out_path.parents]:
+        if (p / "sources.json").exists():
+            return json.loads((p / "sources.json").read_text(encoding="utf-8"))
+    raise FileNotFoundError("sources.json not found")
 
 
 def _check_url(url: str) -> None:

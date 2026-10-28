@@ -28,7 +28,7 @@ def fetch_sub(sub: str, limit: int) -> list:
 
 
 def main(out_path: Path) -> int:
-    cfg = load_config(out_path.parents[1])
+    cfg = load_config(out_path)
     items = []
     for sub in cfg["reddit"]["subs"]:
         try:

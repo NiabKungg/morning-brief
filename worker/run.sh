@@ -4,6 +4,6 @@ set -u
 BASE="$(cd "$(dirname "$0")" && pwd)"
 "$BASE/.venv/bin/python" "$BASE/collector.py"
 rc=$?
-"$BASE/push.sh"
+bash "$BASE/push.sh"
 push_rc=$?
 exit $(( rc > 0 ? rc : push_rc ))
