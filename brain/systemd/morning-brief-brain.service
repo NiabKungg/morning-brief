@@ -1,0 +1,11 @@
+[Unit]
+Description=Morning Brief - summarize with LLM and send to Telegram
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi5
+WorkingDirectory=/home/pi5/morning-brief
+ExecStart=/home/pi5/morning-brief/.venv/bin/python /home/pi5/morning-brief/summarizer.py
+TimeoutStartSec=1500

@@ -1,0 +1,11 @@
+[Unit]
+Description=Morning Brief - collect on Pi4 and push to Pi5
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi4
+WorkingDirectory=/home/pi4/morning-brief
+ExecStart=/bin/bash /home/pi4/morning-brief/run.sh
+TimeoutStartSec=900

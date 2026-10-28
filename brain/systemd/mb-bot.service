@@ -1,0 +1,15 @@
+[Unit]
+Description=Morning Brief - Telegram bot listener (/now /status)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi5
+WorkingDirectory=/home/pi5/morning-brief
+ExecStart=/home/pi5/morning-brief/.venv/bin/python /home/pi5/morning-brief/bot_listener.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

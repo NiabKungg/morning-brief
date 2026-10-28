@@ -1,0 +1,13 @@
+# ข้อมูลลับ/ข้อมูลที่รันแล้ว — ห้าม commit
+config.env
+*.env
+!config.env.example
+.venv/
+__pycache__/
+data/
+incoming/
+archive/
+state/
+*.log
+*.tar.zst
+*.tgz
